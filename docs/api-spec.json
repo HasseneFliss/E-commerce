@@ -1,0 +1,52 @@
+{
+  "nfrs": [
+    "Response time < 200ms for 95th percentile",
+    "Support 1000 concurrent users",
+    "99.9% uptime SLA"
+  ],
+  "schemas": {
+    "User": {
+      "id": "string",
+      "name": "string",
+      "email": "string"
+    },
+    "Order": {
+      "id": "string",
+      "items": "array",
+      "total": "number",
+      "userId": "string"
+    },
+    "Product": {
+      "id": "string",
+      "name": "string",
+      "price": "number"
+    }
+  },
+  "endpoints": [
+    {
+      "path": "/api/auth/login",
+      "method": "POST",
+      "description": "User login"
+    },
+    {
+      "path": "/api/auth/register",
+      "method": "POST",
+      "description": "User registration"
+    },
+    {
+      "path": "/api/products",
+      "method": "GET",
+      "description": "List products"
+    },
+    {
+      "path": "/api/cart",
+      "method": "GET",
+      "description": "Get cart"
+    },
+    {
+      "path": "/api/orders",
+      "method": "POST",
+      "description": "Create order"
+    }
+  ]
+}
