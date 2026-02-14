@@ -2,171 +2,151 @@
 
 ## Epic
 
-Product Discovery Enhancement - Implement comprehensive search and filtering capabilities to improve customer product discovery experience
+E-commerce Platform Core Features
 
 ## Summary
 
-This epic focuses on building a robust product search and filtering system that enables customers to efficiently find products through keyword search, category filters, price ranges, brand selection, ratings, and various sorting options. The implementation includes advanced filters for availability, color, and size, with proper state management and mobile responsiveness to ensure a seamless shopping experience across all devices.
+This epic encompasses the fundamental features required for a complete e-commerce platform, including user management, product discovery, shopping experience, and order fulfillment. The user stories cover authentication and profile management, comprehensive product catalog with search and filtering capabilities, secure shopping cart and checkout process, and complete order tracking with notifications system.
 
 ## Stories
 
-### US-001: Basic Product Search
+### US-001: User Registration
 
 **Priority:** high
 **Story Points:** 5
 
 **Description:**
-As a customer, I want to search for products by name or keyword so that I can quickly find items I'm interested in purchasing
+As a new customer, I want to create an account so that I can make purchases and track my orders
 
 **Acceptance Criteria:**
-- [ ] Given I am on the product catalog page
-- [ ] When I enter a search term in the search box and press enter or click search
-- [ ] Then I should see a list of products that match my search term
-- [ ] And the search should be case-insensitive
-- [ ] And partial matches should be supported
-- [ ] And if no products are found, I should see a 'No products found' message
+- [ ] Given I am on the registration page, When I enter valid email, password, and personal details, Then my account should be created successfully
+- [ ] Given I try to register with an existing email, When I submit the form, Then I should see an error message indicating the email is already in use
+- [ ] Given I enter invalid email format, When I submit the form, Then I should see a validation error
+- [ ] Given I successfully register, When the account is created, Then I should receive a confirmation email
 
-### US-002: Product Category Filter
-
-**Priority:** high
-**Story Points:** 8
-
-**Description:**
-As a customer, I want to filter products by category so that I can browse specific types of products more efficiently
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I select one or more categories from the filter panel
-- [ ] Then I should see only products that belong to the selected categories
-- [ ] And I should be able to select multiple categories simultaneously
-- [ ] And I should be able to clear category filters
-- [ ] And the number of products in each category should be displayed
-
-### US-003: Price Range Filter
-
-**Priority:** high
-**Story Points:** 5
-
-**Description:**
-As a customer, I want to filter products by price range so that I can find products within my budget
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I set a minimum and maximum price range
-- [ ] Then I should see only products within that price range
-- [ ] And I should be able to use a slider or input fields to set the range
-- [ ] And the filter should update in real-time as I adjust the values
-- [ ] And I should be able to clear the price filter
-
-### US-004: Brand Filter
-
-**Priority:** medium
-**Story Points:** 5
-
-**Description:**
-As a customer, I want to filter products by brand so that I can find products from my preferred manufacturers
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I select one or more brands from the brand filter
-- [ ] Then I should see only products from the selected brands
-- [ ] And brands should be listed alphabetically
-- [ ] And I should see the number of products available for each brand
-- [ ] And I should be able to search for brands in a long list
-
-### US-005: Product Rating Filter
-
-**Priority:** medium
-**Story Points:** 3
-
-**Description:**
-As a customer, I want to filter products by customer rating so that I can find highly-rated products
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I select a minimum star rating filter
-- [ ] Then I should see only products with ratings equal to or above my selection
-- [ ] And I should be able to filter by 1-5 star ratings
-- [ ] And products without ratings should be handled appropriately
-- [ ] And the filter should show the number of products for each rating level
-
-### US-006: Product Sorting Options
+### US-002: User Login
 
 **Priority:** high
 **Story Points:** 3
 
 **Description:**
-As a customer, I want to sort products by different criteria so that I can organize search results according to my preferences
+As a registered user, I want to log into my account so that I can access personalized features and my order history
 
 **Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog or search results
-- [ ] When I select a sorting option from the dropdown menu
-- [ ] Then products should be reordered according to the selected criteria
-- [ ] And I should be able to sort by: relevance, price (low to high), price (high to low), customer rating, newest first, best selling
-- [ ] And the current sort option should be clearly indicated
-- [ ] And sorting should work with filtered results
+- [ ] Given I have valid credentials, When I enter my email and password, Then I should be logged in successfully
+- [ ] Given I enter incorrect credentials, When I attempt to login, Then I should see an error message
+- [ ] Given I am logged in, When I close the browser and return, Then I should remain logged in (remember me functionality)
+- [ ] Given I click forgot password, When I enter my email, Then I should receive a password reset link
 
-### US-007: Advanced Search Filters
-
-**Priority:** medium
-**Story Points:** 8
-
-**Description:**
-As a customer, I want to use additional filters like availability, color, and size so that I can narrow down my product search more precisely
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I apply availability filters (in stock, out of stock)
-- [ ] Then I should see products matching my availability preference
-- [ ] And when I select color filters, I should see products in those colors
-- [ ] And when I select size filters, I should see products in those sizes
-- [ ] And filters should work in combination with each other
-
-### US-008: Filter State Management
-
-**Priority:** medium
-**Story Points:** 5
-
-**Description:**
-As a customer, I want my applied filters and search terms to persist when I navigate between pages so that I don't lose my search context
-
-**Acceptance Criteria:**
-- [ ] Given I have applied filters and search terms
-- [ ] When I navigate to a product detail page and return
-- [ ] Then my filters and search terms should still be applied
-- [ ] And when I refresh the page, my filters should be preserved in the URL
-- [ ] And I should be able to share filtered search URLs with others
-- [ ] And I should be able to clear all filters at once
-
-### US-009: Search Results Count and Pagination
+### US-003: Profile Management
 
 **Priority:** medium
 **Story Points:** 3
 
 **Description:**
-As a customer, I want to see how many products match my search and navigate through multiple pages of results so that I can browse all available options
+As a logged-in user, I want to manage my profile information so that my account details are up-to-date
 
 **Acceptance Criteria:**
-- [ ] Given I have performed a search or applied filters
-- [ ] When results are displayed, I should see the total number of matching products
-- [ ] Then if there are more results than can fit on one page, I should see pagination controls
-- [ ] And I should be able to navigate between pages
-- [ ] And I should be able to choose how many products to display per page
-- [ ] And my current page position should be clearly indicated
+- [ ] Given I am logged in, When I access my profile page, Then I should see my current profile information
+- [ ] Given I want to update my information, When I modify fields and save, Then my changes should be persisted
+- [ ] Given I want to change my password, When I enter current and new password, Then my password should be updated securely
+- [ ] Given I update my profile, When changes are saved, Then I should see a success confirmation
 
-### US-010: Mobile-Responsive Search and Filters
+### US-004: Product Catalog Browsing
+
+**Priority:** high
+**Story Points:** 5
+
+**Description:**
+As a customer, I want to browse the product catalog so that I can discover and view available products
+
+**Acceptance Criteria:**
+- [ ] Given I visit the product catalog, When the page loads, Then I should see a list of available products with images, names, and prices
+- [ ] Given I am browsing products, When I click on a product, Then I should see detailed product information
+- [ ] Given there are multiple product categories, When I navigate the catalog, Then I should be able to browse by category
+- [ ] Given there are many products, When I scroll through the catalog, Then products should load efficiently with pagination
+
+### US-005: Product Search
+
+**Priority:** high
+**Story Points:** 4
+
+**Description:**
+As a customer, I want to search for specific products so that I can quickly find what I'm looking for
+
+**Acceptance Criteria:**
+- [ ] Given I enter a search term, When I submit the search, Then I should see relevant products matching my query
+- [ ] Given I search for a non-existent product, When I submit the search, Then I should see a 'no results found' message
+- [ ] Given I perform a search, When results are displayed, Then they should be ranked by relevance
+- [ ] Given I start typing in the search box, When I type, Then I should see search suggestions appear
+
+### US-006: Product Filtering
+
+**Priority:** medium
+**Story Points:** 4
+
+**Description:**
+As a customer, I want to filter products by various criteria so that I can narrow down my choices
+
+**Acceptance Criteria:**
+- [ ] Given I am viewing the product catalog, When I apply price range filters, Then only products within that range should be displayed
+- [ ] Given I want to filter by category, When I select categories, Then only products from those categories should show
+- [ ] Given I apply multiple filters, When filters are active, Then products matching all criteria should be displayed
+- [ ] Given I have filters applied, When I clear filters, Then all products should be displayed again
+
+### US-007: Shopping Cart Management
+
+**Priority:** high
+**Story Points:** 4
+
+**Description:**
+As a customer, I want to add products to my shopping cart so that I can review my selections before purchasing
+
+**Acceptance Criteria:**
+- [ ] Given I am viewing a product, When I click 'Add to Cart', Then the product should be added to my cart
+- [ ] Given I have items in my cart, When I view the cart, Then I should see all added products with quantities and prices
+- [ ] Given I want to modify quantities, When I update item quantities in the cart, Then the total should recalculate automatically
+- [ ] Given I want to remove an item, When I click remove, Then the item should be deleted from my cart
+
+### US-008: Secure Checkout Process
 
 **Priority:** high
 **Story Points:** 8
 
 **Description:**
-As a mobile customer, I want search and filter functionality to work seamlessly on my mobile device so that I can shop effectively on any device
+As a customer, I want to securely checkout and pay for my items so that I can complete my purchase
 
 **Acceptance Criteria:**
-- [ ] Given I am using a mobile device
-- [ ] When I access the search and filter features
-- [ ] Then all functionality should be easily accessible and usable
-- [ ] And filters should be organized in a collapsible mobile-friendly interface
-- [ ] And search results should be optimized for mobile viewing
-- [ ] And touch interactions should work smoothly
+- [ ] Given I have items in my cart, When I proceed to checkout, Then I should be able to enter shipping and billing information
+- [ ] Given I am at checkout, When I enter payment details, Then the information should be processed securely
+- [ ] Given I complete the checkout process, When payment is successful, Then I should receive an order confirmation
+- [ ] Given payment fails, When I attempt to complete checkout, Then I should see an error message and be able to retry
+
+### US-009: Order Tracking
+
+**Priority:** medium
+**Story Points:** 5
+
+**Description:**
+As a customer, I want to track my order status so that I know when to expect my delivery
+
+**Acceptance Criteria:**
+- [ ] Given I have placed an order, When I view my order history, Then I should see the current status of my orders
+- [ ] Given my order status changes, When an update occurs, Then the status should be reflected in my account
+- [ ] Given I want to track a specific order, When I enter my order number, Then I should see detailed tracking information
+- [ ] Given I am logged in, When I access order tracking, Then I should see estimated delivery dates
+
+### US-010: Order Notifications
+
+**Priority:** medium
+**Story Points:** 3
+
+**Description:**
+As a customer, I want to receive notifications about my order status so that I stay informed about my purchases
+
+**Acceptance Criteria:**
+- [ ] Given I place an order, When the order is confirmed, Then I should receive an email confirmation
+- [ ] Given my order ships, When the status changes to shipped, Then I should receive a shipping notification with tracking details
+- [ ] Given my order is delivered, When delivery is completed, Then I should receive a delivery confirmation
+- [ ] Given there are issues with my order, When problems arise, Then I should be notified promptly
 
