@@ -1,0 +1,29 @@
+{
+  "endpoints": [
+    {
+      "path": "/api/auth/login",
+      "method": "POST",
+      "description": "User login"
+    },
+    {
+      "path": "/api/auth/register",
+      "method": "POST",
+      "description": "User registration"
+    },
+    {
+      "path": "/api/products",
+      "method": "GET",
+      "description": "List products"
+    },
+    {
+      "path": "/api/cart",
+      "method": "GET",
+      "description": "Get cart"
+    },
+    {
+      "path": "/api/orders",
+      "method": "POST",
+      "description": "Create order"
+    }
+  ]
+}
