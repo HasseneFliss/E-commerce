@@ -2,171 +2,192 @@
 
 ## Epic
 
-Product Discovery Enhancement - Implement comprehensive search and filtering capabilities to improve customer product discovery experience
+Shopping Cart and Checkout System
 
 ## Summary
 
-This epic focuses on building a robust product search and filtering system that enables customers to efficiently find products through keyword search, category filters, price ranges, brand selection, ratings, and various sorting options. The implementation includes advanced filters for availability, color, and size, with proper state management and mobile responsiveness to ensure a seamless shopping experience across all devices.
+Complete shopping cart functionality enabling customers to add/remove items, manage quantities, persist cart data across sessions, and complete purchases through a secure checkout process with shipping and payment information collection.
 
 ## Stories
 
-### US-001: Basic Product Search
+### US-001: Add item to shopping cart
 
 **Priority:** high
 **Story Points:** 5
 
 **Description:**
-As a customer, I want to search for products by name or keyword so that I can quickly find items I'm interested in purchasing
+As a customer, I want to add products to my shopping cart so that I can collect items for purchase
 
 **Acceptance Criteria:**
-- [ ] Given I am on the product catalog page
-- [ ] When I enter a search term in the search box and press enter or click search
-- [ ] Then I should see a list of products that match my search term
-- [ ] And the search should be case-insensitive
-- [ ] And partial matches should be supported
-- [ ] And if no products are found, I should see a 'No products found' message
+- [ ] Given I am viewing a product page
+- [ ] When I click the 'Add to Cart' button
+- [ ] Then the item should be added to my shopping cart with quantity 1
+- [ ] And the cart icon should show the updated item count
+- [ ] And I should see a confirmation message
 
-### US-002: Product Category Filter
-
-**Priority:** high
-**Story Points:** 8
-
-**Description:**
-As a customer, I want to filter products by category so that I can browse specific types of products more efficiently
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I select one or more categories from the filter panel
-- [ ] Then I should see only products that belong to the selected categories
-- [ ] And I should be able to select multiple categories simultaneously
-- [ ] And I should be able to clear category filters
-- [ ] And the number of products in each category should be displayed
-
-### US-003: Price Range Filter
-
-**Priority:** high
-**Story Points:** 5
-
-**Description:**
-As a customer, I want to filter products by price range so that I can find products within my budget
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I set a minimum and maximum price range
-- [ ] Then I should see only products within that price range
-- [ ] And I should be able to use a slider or input fields to set the range
-- [ ] And the filter should update in real-time as I adjust the values
-- [ ] And I should be able to clear the price filter
-
-### US-004: Brand Filter
-
-**Priority:** medium
-**Story Points:** 5
-
-**Description:**
-As a customer, I want to filter products by brand so that I can find products from my preferred manufacturers
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I select one or more brands from the brand filter
-- [ ] Then I should see only products from the selected brands
-- [ ] And brands should be listed alphabetically
-- [ ] And I should see the number of products available for each brand
-- [ ] And I should be able to search for brands in a long list
-
-### US-005: Product Rating Filter
-
-**Priority:** medium
-**Story Points:** 3
-
-**Description:**
-As a customer, I want to filter products by customer rating so that I can find highly-rated products
-
-**Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I select a minimum star rating filter
-- [ ] Then I should see only products with ratings equal to or above my selection
-- [ ] And I should be able to filter by 1-5 star ratings
-- [ ] And products without ratings should be handled appropriately
-- [ ] And the filter should show the number of products for each rating level
-
-### US-006: Product Sorting Options
+### US-002: View shopping cart contents
 
 **Priority:** high
 **Story Points:** 3
 
 **Description:**
-As a customer, I want to sort products by different criteria so that I can organize search results according to my preferences
+As a customer, I want to view all items in my shopping cart so that I can review my selections before checkout
 
 **Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog or search results
-- [ ] When I select a sorting option from the dropdown menu
-- [ ] Then products should be reordered according to the selected criteria
-- [ ] And I should be able to sort by: relevance, price (low to high), price (high to low), customer rating, newest first, best selling
-- [ ] And the current sort option should be clearly indicated
-- [ ] And sorting should work with filtered results
+- [ ] Given I have items in my shopping cart
+- [ ] When I click on the cart icon or navigate to the cart page
+- [ ] Then I should see a list of all items in my cart
+- [ ] And each item should display product name, image, price, and quantity
+- [ ] And I should see the subtotal for each item and total cart value
 
-### US-007: Advanced Search Filters
+### US-003: Update item quantity in cart
 
-**Priority:** medium
-**Story Points:** 8
+**Priority:** high
+**Story Points:** 3
 
 **Description:**
-As a customer, I want to use additional filters like availability, color, and size so that I can narrow down my product search more precisely
+As a customer, I want to change the quantity of items in my cart so that I can adjust my order before checkout
 
 **Acceptance Criteria:**
-- [ ] Given I am viewing the product catalog
-- [ ] When I apply availability filters (in stock, out of stock)
-- [ ] Then I should see products matching my availability preference
-- [ ] And when I select color filters, I should see products in those colors
-- [ ] And when I select size filters, I should see products in those sizes
-- [ ] And filters should work in combination with each other
+- [ ] Given I am viewing my shopping cart
+- [ ] When I modify the quantity field for an item
+- [ ] Then the item quantity should be updated
+- [ ] And the subtotal and total should recalculate automatically
+- [ ] And the changes should be saved immediately
 
-### US-008: Filter State Management
+### US-004: Remove item from cart
+
+**Priority:** high
+**Story Points:** 2
+
+**Description:**
+As a customer, I want to remove items from my shopping cart so that I can eliminate products I no longer want to purchase
+
+**Acceptance Criteria:**
+- [ ] Given I am viewing my shopping cart
+- [ ] When I click the 'Remove' or delete button for an item
+- [ ] Then the item should be removed from my cart
+- [ ] And the cart total should update to reflect the removal
+- [ ] And I should see a confirmation that the item was removed
+
+### US-005: Clear entire shopping cart
+
+**Priority:** medium
+**Story Points:** 2
+
+**Description:**
+As a customer, I want to clear all items from my shopping cart so that I can start fresh with my shopping
+
+**Acceptance Criteria:**
+- [ ] Given I have items in my shopping cart
+- [ ] When I click the 'Clear Cart' button
+- [ ] Then I should see a confirmation dialog
+- [ ] And when I confirm, all items should be removed from my cart
+- [ ] And the cart should show as empty with a message 'Your cart is empty'
+
+### US-006: Persist cart across sessions
 
 **Priority:** medium
 **Story Points:** 5
 
 **Description:**
-As a customer, I want my applied filters and search terms to persist when I navigate between pages so that I don't lose my search context
+As a customer, I want my cart items to be saved when I leave and return to the site so that I don't lose my selections
 
 **Acceptance Criteria:**
-- [ ] Given I have applied filters and search terms
-- [ ] When I navigate to a product detail page and return
-- [ ] Then my filters and search terms should still be applied
-- [ ] And when I refresh the page, my filters should be preserved in the URL
-- [ ] And I should be able to share filtered search URLs with others
-- [ ] And I should be able to clear all filters at once
+- [ ] Given I have items in my shopping cart
+- [ ] When I close the browser or navigate away from the site
+- [ ] And I return to the site later
+- [ ] Then my cart should still contain the same items
+- [ ] And the quantities and selections should be preserved
 
-### US-009: Search Results Count and Pagination
+### US-007: Proceed to checkout
 
-**Priority:** medium
+**Priority:** high
 **Story Points:** 3
 
 **Description:**
-As a customer, I want to see how many products match my search and navigate through multiple pages of results so that I can browse all available options
+As a customer, I want to initiate the checkout process from my cart so that I can complete my purchase
 
 **Acceptance Criteria:**
-- [ ] Given I have performed a search or applied filters
-- [ ] When results are displayed, I should see the total number of matching products
-- [ ] Then if there are more results than can fit on one page, I should see pagination controls
-- [ ] And I should be able to navigate between pages
-- [ ] And I should be able to choose how many products to display per page
-- [ ] And my current page position should be clearly indicated
+- [ ] Given I have items in my shopping cart
+- [ ] When I click the 'Proceed to Checkout' button
+- [ ] Then I should be redirected to the checkout page
+- [ ] And I should see a summary of my order
+- [ ] And the cart should be locked from further modifications
 
-### US-010: Mobile-Responsive Search and Filters
+### US-008: Enter shipping information
+
+**Priority:** high
+**Story Points:** 5
+
+**Description:**
+As a customer, I want to provide my shipping address during checkout so that my order can be delivered to the correct location
+
+**Acceptance Criteria:**
+- [ ] Given I am on the checkout page
+- [ ] When I enter my shipping information
+- [ ] Then I should be able to input name, address, city, state, zip code, and country
+- [ ] And all required fields should be validated
+- [ ] And I should be able to save this address for future use
+
+### US-009: Enter payment information
 
 **Priority:** high
 **Story Points:** 8
 
 **Description:**
-As a mobile customer, I want search and filter functionality to work seamlessly on my mobile device so that I can shop effectively on any device
+As a customer, I want to provide payment details during checkout so that I can complete my purchase
 
 **Acceptance Criteria:**
-- [ ] Given I am using a mobile device
-- [ ] When I access the search and filter features
-- [ ] Then all functionality should be easily accessible and usable
-- [ ] And filters should be organized in a collapsible mobile-friendly interface
-- [ ] And search results should be optimized for mobile viewing
-- [ ] And touch interactions should work smoothly
+- [ ] Given I am on the checkout page
+- [ ] When I enter payment information
+- [ ] Then I should be able to input credit card number, expiry date, and CVV
+- [ ] And the payment form should be secure and encrypted
+- [ ] And card details should be validated before submission
+
+### US-010: Review and place order
+
+**Priority:** high
+**Story Points:** 5
+
+**Description:**
+As a customer, I want to review my complete order before final submission so that I can confirm all details are correct
+
+**Acceptance Criteria:**
+- [ ] Given I have completed shipping and payment information
+- [ ] When I review my order
+- [ ] Then I should see order summary with items, quantities, prices, shipping address, and payment method
+- [ ] And I should see calculated taxes and shipping costs
+- [ ] And when I click 'Place Order', the order should be submitted
+- [ ] And I should receive an order confirmation
+
+### US-011: Handle inventory constraints
+
+**Priority:** medium
+**Story Points:** 3
+
+**Description:**
+As a customer, I want to be notified if cart items are out of stock so that I can make informed decisions about my purchase
+
+**Acceptance Criteria:**
+- [ ] Given I have items in my cart
+- [ ] When an item becomes out of stock or low inventory
+- [ ] Then I should see a warning message for that item
+- [ ] And the item should be clearly marked as unavailable
+- [ ] And I should not be able to proceed to checkout with out-of-stock items
+
+### US-012: Calculate taxes and shipping
+
+**Priority:** high
+**Story Points:** 8
+
+**Description:**
+As a customer, I want to see accurate tax and shipping calculations in my cart so that I know the total cost before checkout
+
+**Acceptance Criteria:**
+- [ ] Given I have items in my cart and provided shipping information
+- [ ] When I view my cart or checkout page
+- [ ] Then taxes should be calculated based on my shipping address
+- [ ] And shipping costs should be calculated based on location and items
+- [ ] And the final total should include all taxes and fees
 
